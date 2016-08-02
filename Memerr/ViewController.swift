@@ -82,8 +82,9 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
     }
     
     func keyboardWillShow(notification: NSNotification) -> Void{
-        view.frame.origin.y = -1 * getKeyboardHeight(notification)
-
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y = -1 * getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
