@@ -18,19 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNX-R4-9ZN">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem width="209" style="plain" systemItem="fixedSpace" id="go1-Vp-itJ"/>
-                                    <barButtonItem title="Album" id="BpW-18-zq2">
-                                        <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="q3N-pH-AzC"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="36" style="plain" systemItem="fixedSpace" id="Obg-B5-6tB"/>
-                                    <barButtonItem systemItem="camera" id="59G-NA-Td8"/>
-                                </items>
-                            </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Om-Z7-nR8">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
@@ -88,7 +75,6 @@
                             <constraint firstItem="56Y-Gc-ENe" firstAttribute="top" secondItem="c2R-VF-XOp" secondAttribute="bottom" id="Md9-dr-uIk"/>
                             <constraint firstItem="FmJ-z9-mx8" firstAttribute="centerX" secondItem="56Y-Gc-ENe" secondAttribute="centerX" id="NV2-e4-T7I"/>
                             <constraint firstItem="56Y-Gc-ENe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TbM-Jt-Jaz"/>
-                            <constraint firstItem="nNX-R4-9ZN" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ZpS-VP-e32"/>
                             <constraint firstAttribute="bottom" secondItem="FmJ-z9-mx8" secondAttribute="bottom" constant="117" id="bue-PL-VTg"/>
                             <constraint firstItem="56Y-Gc-ENe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ccn-xK-0Z7"/>
                             <constraint firstItem="FmJ-z9-mx8" firstAttribute="leading" secondItem="NIL-VS-M7u" secondAttribute="leading" id="fqx-wH-asP"/>
@@ -101,16 +87,6 @@
                             <constraint firstItem="c2R-VF-XOp" firstAttribute="top" secondItem="6Om-Z7-nR8" secondAttribute="bottom" id="z69-Jc-aMB"/>
                             <constraint firstItem="c2R-VF-XOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zvk-01-gkW"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="nNX-R4-9ZN"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="nNX-R4-9ZN"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="album_button" destination="3Rr-5F-rv8" id="Fq1-r9-U53"/>
