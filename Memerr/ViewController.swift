@@ -21,6 +21,14 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     
+    @IBOutlet weak var navbar: UINavigationBar!
+    
+    @IBOutlet weak var camera_button: UIBarButtonItem!
+    
+    @IBOutlet weak var album_button: UIBarButtonItem!
+    
+    @IBOutlet weak var toolbar: UIToolbar!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -124,6 +132,64 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
         imagePickerView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    struct Meme {
+        var topText = ""
+        var bottomText = ""
+        var image = UIImage()
+        var memedImage = UIImage()
+        
+        init (topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage) {
+            self.topText = topText
+            self.bottomText = bottomText
+            self.image = originalImage
+            self.memedImage = memedImage
+        }
+        
+    }
+    
+    @IBAction func share_meme(sender: AnyObject) {
+        let objectsToShare = [generateMemedImage()]
+        let viewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        viewController.popoverPresentationController?.sourceView = sender as! UIImageView   
+        self.presentViewController(viewController, animated: true, completion: nil)
+
+        
+    }
+    
+    func save() {
+        //Create the meme
+        let meme = Meme( topText: topTextField.text!, bottomText:bottomTextField.text!, originalImage:imagePickerView.image!, memedImage: generateMemedImage())
+    }
+    
+    
+    func generateMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar
+        toolbar.hidden = true
+        navbar.hidden = true
+        camera_button.enabled = false
+        album_button.enabled = false
+    
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+                                     afterScreenUpdates: true)
+        let memedImage : UIImage =
+            UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar 
+        toolbar.hidden = false
+        navbar.hidden = false
+        camera_button.enabled = true
+        album_button.enabled = true
+        
+        return memedImage
+    }
+    
+
 
 }
 

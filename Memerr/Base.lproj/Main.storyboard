@@ -34,12 +34,28 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Om-Z7-nR8">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Memerr" id="Jfo-0c-GyB"/>
+                                    <navigationItem title="Memerr" id="Jfo-0c-GyB">
+                                        <barButtonItem key="rightBarButtonItem" title="Share" id="peg-rU-3JO">
+                                            <connections>
+                                                <action selector="share_meme:" destination="BYZ-38-t0r" id="Fst-eA-R2U"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2R-VF-XOp">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FmJ-z9-mx8">
+                                <rect key="frame" x="20" y="453" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIL-VS-M7u">
+                                <rect key="frame" x="20" y="108" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56Y-Gc-ENe">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <constraints>
@@ -61,16 +77,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1Eh-UQ-9x3"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FmJ-z9-mx8">
-                                <rect key="frame" x="20" y="453" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIL-VS-M7u">
-                                <rect key="frame" x="20" y="108" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -107,8 +113,12 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="album_button" destination="3Rr-5F-rv8" id="Fq1-r9-U53"/>
                         <outlet property="bottomTextField" destination="FmJ-z9-mx8" id="iBH-xf-MPK"/>
+                        <outlet property="camera_button" destination="qbI-E2-uSI" id="7oq-8J-Uee"/>
                         <outlet property="imagePickerView" destination="c2R-VF-XOp" id="mds-p3-fDt"/>
+                        <outlet property="navbar" destination="6Om-Z7-nR8" id="cNV-T1-DNg"/>
+                        <outlet property="toolbar" destination="56Y-Gc-ENe" id="C9S-Q8-8NZ"/>
                         <outlet property="topTextField" destination="NIL-VS-M7u" id="940-Ov-4dg"/>
                     </connections>
                 </viewController>
