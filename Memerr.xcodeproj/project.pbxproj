@@ -484,6 +484,7 @@
 				ACBE9EBF1D3E77FC000320AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACBE9EC01D3E77FC000320AA /* Build configuration list for PBXNativeTarget "MemerrTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +493,7 @@
 				ACBE9EC21D3E77FC000320AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACBE9EC31D3E77FC000320AA /* Build configuration list for PBXNativeTarget "MemerrUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +502,7 @@
 				ACBE9EC51D3E77FC000320AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
