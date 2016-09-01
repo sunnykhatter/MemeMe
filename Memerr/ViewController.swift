@@ -35,27 +35,28 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
         
         topTextField.delegate = self
         bottomTextField.delegate = self
+        
+        stylizeTextField(topTextField)
+        stylizeTextField(bottomTextField)
+        
+        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
 
+
+    }
+    
+    func stylizeTextField(textField: UITextField) {
+        
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 25)!,
             NSStrokeWidthAttributeName : -2.0]
         
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.adjustsFontSizeToFitWidth = true
-        topTextField.textAlignment = NSTextAlignment.Center
         
-        
-        
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.adjustsFontSizeToFitWidth = true
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        subscribeToKeyboardNotifications()
-        
-        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
-
-
+        textField.delegate = self
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.adjustsFontSizeToFitWidth = true
+        textField.textAlignment = NSTextAlignment.Center
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -186,8 +187,7 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
         
         // TODO:  Show toolbar and navbar
         shouldHideElements(false, enabled: true)
-
-        
+    
         return memedImage
     }
     
@@ -196,6 +196,7 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
         toolbar.hidden = hidden
         navbar.hidden = hidden
         album_button.enabled = enabled
+    
         camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
 
     }
