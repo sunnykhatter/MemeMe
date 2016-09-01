@@ -117,17 +117,13 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func pickAnImageFromCamera(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
+        if sender.tag == 0 {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        } else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
 
+        }
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     
@@ -178,10 +174,7 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
     func generateMemedImage() -> UIImage {
         
         // TODO: Hide toolbar and navbar
-        toolbar.hidden = true
-        navbar.hidden = true
-        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
-        album_button.enabled = false
+        shouldHideElements(true, enabled: false)
     
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -191,16 +184,21 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
             UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar 
-        toolbar.hidden = false
-        navbar.hidden = false
-        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
-        album_button.enabled = true
+        // TODO:  Show toolbar and navbar
+        shouldHideElements(false, enabled: true)
+
         
         return memedImage
     }
     
 
+    func shouldHideElements(hidden:Bool, enabled:Bool) {
+        toolbar.hidden = hidden
+        navbar.hidden = hidden
+        album_button.enabled = enabled
+        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
+
+    }
 
 }
 
