@@ -52,6 +52,9 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
         bottomTextField.adjustsFontSizeToFitWidth = true
         bottomTextField.textAlignment = NSTextAlignment.Center
         subscribeToKeyboardNotifications()
+        
+        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
+
 
     }
     
@@ -152,15 +155,23 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
     @IBAction func share_meme(sender: AnyObject) {
         let objectsToShare = [generateMemedImage()]
         let viewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        
         viewController.popoverPresentationController?.sourceView = sender as! UIImageView   
+        
         self.presentViewController(viewController, animated: true, completion: nil)
 
-        
+        viewController.completionWithItemsHandler = { (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
+            if completed {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
     }
     
     func save() {
         //Create the meme
         let meme = Meme( topText: topTextField.text!, bottomText:bottomTextField.text!, originalImage:imagePickerView.image!, memedImage: generateMemedImage())
+    
     }
     
     
@@ -169,7 +180,7 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
         // TODO: Hide toolbar and navbar
         toolbar.hidden = true
         navbar.hidden = true
-        camera_button.enabled = false
+        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
         album_button.enabled = false
     
         // Render view to an image
@@ -183,7 +194,7 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
         // TODO:  Show toolbar and navbar 
         toolbar.hidden = false
         navbar.hidden = false
-        camera_button.enabled = true
+        camera_button.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
         album_button.enabled = true
         
         return memedImage
