@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2379D61D7B4BBA00CCBF1D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2379D51D7B4BBA00CCBF1D /* Meme.swift */; };
 		ACBE9E991D3E77FC000320AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBE9E981D3E77FC000320AA /* AppDelegate.swift */; };
 		ACBE9E9B1D3E77FC000320AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBE9E9A1D3E77FC000320AA /* ViewController.swift */; };
 		ACBE9E9E1D3E77FC000320AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBE9E9C1D3E77FC000320AA /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC2379D51D7B4BBA00CCBF1D /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		ACBE9E951D3E77FC000320AA /* Memerr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memerr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBE9E981D3E77FC000320AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACBE9E9A1D3E77FC000320AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				ACBE9E981D3E77FC000320AA /* AppDelegate.swift */,
 				ACBE9E9A1D3E77FC000320AA /* ViewController.swift */,
+				AC2379D51D7B4BBA00CCBF1D /* Meme.swift */,
 				ACBE9E9C1D3E77FC000320AA /* Main.storyboard */,
 				ACBE9E9F1D3E77FC000320AA /* Assets.xcassets */,
 				ACBE9EA11D3E77FC000320AA /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2379D61D7B4BBA00CCBF1D /* Meme.swift in Sources */,
 				ACBE9E9B1D3E77FC000320AA /* ViewController.swift in Sources */,
 				ACBE9E991D3E77FC000320AA /* AppDelegate.swift in Sources */,
 			);

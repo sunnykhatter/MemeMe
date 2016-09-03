@@ -134,21 +134,6 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
     }
     
     
-    struct Meme {
-        var topText = ""
-        var bottomText = ""
-        var image = UIImage()
-        var memedImage = UIImage()
-        
-        init (topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage) {
-            self.topText = topText
-            self.bottomText = bottomText
-            self.image = originalImage
-            self.memedImage = memedImage
-        }
-        
-    }
-    
     @IBAction func share_meme(sender: AnyObject) {
         let objectsToShare = [generateMemedImage()]
         let viewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
