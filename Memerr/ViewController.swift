@@ -191,5 +191,10 @@ UINavigationControllerDelegate, UITextFieldDelegate  {
 
     }
 
+    
+    @IBAction func removeView(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion:  {})
+    }
+    
 }
 

@@ -10,14 +10,16 @@ import UIKit
 
 class MemeTableViewController: UIViewController, UITableViewDelegate {
 
+    @IBOutlet weak var memeTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false;
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        memeTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,16 +35,26 @@ class MemeTableViewController: UIViewController, UITableViewDelegate {
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        let memes = getMemes()
+        return memes.count
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        cell.imageView?.image = appDelegate.memes[indexPath.row].memedImage
+        cell.textLabel!.text = appDelegate.memes[indexPath.row].topText + appDelegate.memes[indexPath.row].bottomText as String
         return cell
     }
- 
+    
+    func  getMemes() -> [Meme] {
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.memes
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
