@@ -1,0 +1,8 @@
+MemeMe
+
+MemeMe is an iOS application that allows users to create and share memes. This application was built in two phases. 
+The first version only allowed you to create memes and share them using the activity view. The second version allows users to
+see there creations in either a table view or collection view and also share it.
+
+Possible upgrades to occure in the future include:
+Persistance with NSCoreData and user defaults.
